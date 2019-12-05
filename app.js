@@ -14,7 +14,7 @@ inquirer
       type: "input",
       name: "url",
       message: "Codewars collection url?",
-      validate: function(value) {
+      validate: function (value) {
         if (value !== "") {
           return true;
         }
@@ -25,7 +25,7 @@ inquirer
       type: "input",
       name: "folder_name",
       message: "Folder name for problems?",
-      validate: function(value) {
+      validate: function (value) {
         if (value !== "") {
           return true;
         }
@@ -34,7 +34,6 @@ inquirer
     }
   ])
   .then(answers => {
-    console.log(answers);
     url = answers.url;
     folder_name = answers.folder_name;
 
@@ -48,7 +47,7 @@ function app(url, folder_name) {
     let content = await page.content();
     let katas = [];
 
-    $(".collection-items .item-title a", content).each(function() {
+    $(".collection-items .item-title a", content).each(function () {
       katas.push({
         url: "https://www.codewars.com" + $(this).attr("href"),
         title: $(this).text()
@@ -66,14 +65,13 @@ function app(url, folder_name) {
       let content = await page.content();
       const description = $("#description", content);
       kata.description = description.html();
+
+      console.log(i + 1, kata);
     }
 
-    console.log(katas);
-
-    let readme = `# codewars-solutions
-  My collection of solutions for Codewars
-    
-  ## 8 Kyu`;
+    let readme = '# codewars-solutions';
+    readme += '\nMy collection of solutions for Codewars\n';
+    readme += '\n## 8 Kyu';
 
     fs.writeFileSync("readme.md", readme);
 
@@ -81,11 +79,13 @@ function app(url, folder_name) {
       fs.mkdirSync(folder_name);
     }
 
+    console.log("Writting data to files...");
+
     katas.map((value, index) => {
       let slug = slugify(value.title, { lower: true });
       let template = `\n${index + 1}. [${value.title}](${
         value.url
-      }) - [Solution](8kyu/${index + 1}-${slug}.md)`;
+        }) - [Solution](8kyu/${index + 1}-${slug}.md)`;
       fs.appendFileSync("readme.md", template);
 
       let problemTemplate = "### Problem:\n";
