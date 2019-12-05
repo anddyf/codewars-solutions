@@ -69,11 +69,9 @@ function app(url, folder_name) {
       console.log(i + 1, kata);
     }
 
-    let readme = '# codewars-solutions';
-    readme += '\nMy collection of solutions for Codewars\n';
-    readme += '\n## 8 Kyu';
+    let readme = '\n## ' + folder_name;
 
-    fs.writeFileSync("readme.md", readme);
+    fs.appendFileSync("readme.md", readme);
 
     if (!fs.existsSync(folder_name)) {
       fs.mkdirSync(folder_name);
@@ -85,14 +83,14 @@ function app(url, folder_name) {
       let slug = slugify(value.title, { lower: true });
       let template = `\n${index + 1}. [${value.title}](${
         value.url
-        }) - [Solution](8kyu/${index + 1}-${slug}.md)`;
+        }) - [Solution](${folder_name}/${index + 1}-${slug}.md)`;
       fs.appendFileSync("readme.md", template);
 
       let problemTemplate = "### Problem:\n";
       problemTemplate += value.description;
       problemTemplate += "\n### Solution";
 
-      fs.writeFileSync(`8kyu/${index + 1}-${slug}.md`, problemTemplate);
+      fs.writeFileSync(`${folder_name}/${index + 1}-${slug}.md`, problemTemplate);
     });
 
     await browser.close();
