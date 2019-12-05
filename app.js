@@ -69,7 +69,7 @@ function app(url, folder_name) {
       console.log(i + 1, kata);
     }
 
-    let readme = '\n## ' + folder_name;
+    let readme = '\n\n## ' + folder_name + '\n';
 
     fs.appendFileSync("readme.md", readme);
 
