@@ -40,3 +40,30 @@ number_to_string(<span class="hljs-number">999</span>) <span class="hljs-comment
 numbertostring(<span class="hljs-number">999</span>) <span class="hljs-comment"># returns &quot;999&quot;</span></code></pre>
 
 ### Solution
+```javascript
+function numberToString(num) {
+  return num.toString();
+}
+```
+
+```javascript
+function numberToString(num) {
+  return String(num);
+}
+```
+
+```javascript
+function numberToString(num) {
+  return '' + num;
+}
+```
+
+```javascript
+function numberToString(num) {
+  return num + '';
+}
+```
+
+```javascript
+const numberToString = num => `${num}`;
+```

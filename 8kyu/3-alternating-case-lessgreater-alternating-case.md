@@ -69,3 +69,32 @@ toAlternatingCase(<span class="hljs-string">&quot;String.prototype.toAlternating
 <p>As usual, your function/method should be pure, i.e. it should <strong>not</strong> mutate the original string.</p>
 
 ### Solution
+```javascript
+String.prototype.toAlternatingCase = function () {
+    return this.split("").map(a => a === a.toUpperCase()? a.toLowerCase(): a.toUpperCase()).join('')
+}
+```
+
+```javascript
+const isLowerCase = (char) => char.toLowerCase() === char;
+const swapCase = (char) => isLowerCase(char) ? char.toUpperCase() : char.toLowerCase();
+
+String.prototype.toAlternatingCase = function() {
+  return [...this].map(swapCase).join('');
+};
+```
+
+```javascript
+String.prototype.toAlternatingCase = function () {
+  new_str = "";
+  for(var i = 0; i < this.length; i++) {
+    if(this[i] === this[i].toUpperCase()) {
+      new_str += this[i].toLowerCase();
+    }
+    else {
+      new_str += this[i].toUpperCase();
+    }
+  }
+  return new_str;
+}
+```
