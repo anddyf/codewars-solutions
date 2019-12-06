@@ -1,0 +1,10 @@
+### Problem:
+<p>The <code>mystery</code> function is defined over the non-negative integers. The more common name of this function is concealed in order to not tempt you to search the Web for help in solving this kata, which most definitely would be a very dishonorable thing to do.</p>
+<p>Assume <code>num</code> has <code>n</code> bits. Then <code>mystery(num)</code> is the number whose binary representation is the <code>num</code><sup>th</sup> entry in the table <code>T(n)</code>, where <code>T(n)</code> is defined recursively as follows:</p>
+<pre><code>T(1) = [0, 1]</code></pre><p><code>T(n + 1)</code> is obtained by taking two copies of <code>T(n)</code>, reversing the second copy, prepending each entry of the first copy with <code>0</code> and each entry of the reversed copy with <code>1</code>, and then concatenating the two. For example:</p>
+<pre><code>T(2) = [ 00, 01, 11, 10 ]</code></pre><p>and</p>
+<pre><code>T(3) = [ 000, 001, 011, 010, 110, 111, 101, 100 ]</code></pre><p><code>mystery(6)</code> is the 6<sup>th</sup> entry in <code>T(3)</code> ( with indexing starting at <code>0</code> ), i.e., <code>101</code> interpreted as a binary number. So, <code>mystery(6)</code> returns <code>5</code>.</p>
+<p>Your mission is to implement the function <code>mystery</code>, where the argument may have up to 63 bits. Note that <code>T(63)</code> is far too large to compute and store, so you&apos;ll have to find an alternative way of implementing <code>mystery</code>. You are also asked to implement <code>mystery_inv</code> ( or <code>mysteryInv</code> ), the inverse of <code>mystery</code>. Finally, you are asked to implement a function <code>name_of_mystery</code> ( or <code>nameOfMystery</code> ), which shall return the name that <code>mystery</code> is more commonly known as. After passing all tests you are free to learn more about this function on Wikipedia or another place.</p>
+<p>Hint: If you don&apos;t know the name of <code>mystery</code>, remember there is information in passing as well as failing a test.</p>
+
+### Solution

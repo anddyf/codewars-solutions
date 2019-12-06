@@ -1,0 +1,16 @@
+### Problem:
+<p>Alice, Samantha, and Patricia are relaxing on the porch, when Alice suddenly says: <em>&quot;I&apos;m thinking of two numbers, both greater than or equal to 2. I shall tell Samantha the sum of the two numbers and Patricia the product of the two numbers.&quot;</em> </p>
+<p>She takes Samantha aside and whispers in her ear the sum so that Patricia cannot hear it. Then she takes Patricia aside and whispers in her ear the product so that Samantha cannot hear it.</p>
+<p>After a moment of reflection, Samantha says:</p>
+<p> <strong>Statement 1:</strong> <em>&quot;Patricia cannot know what the two numbers are.&quot;</em></p>
+<p>After which Patricia says:</p>
+<p> <strong>Statement 2:</strong>  <em>&quot;In that case, I do know what the two numbers are.&quot;</em></p>
+<p>To which Samantha replies:</p>
+<p> <strong>Statement 3:</strong>  <em>&quot;Then I too know what the two numbers are.&quot;</em></p>
+<p>Your first task is to write a function <code>statement1(s)</code> that takes an <code>int</code> argument <code>s</code> and returns <code>True</code> if and only if Samantha could have made statement 1 if given the number <code>s</code>. You may assume that <code>s</code> is the sum of two numbers both greater than or equal to 2.  </p>
+<p>Your second task is to write a function <code>statement2(p)</code> that takes an <code>int</code> argument <code>p</code> and returns <code>True</code> if and only if Patricia, when given the number <code>p</code>, could have made statement 2 after hearing Samantha make statement 1. You may assume that <code>p</code> is the product of two numbers both greater than or equal to 2 and that Patricia would not have been able to determine the two numbers by looking at <code>p</code> alone.</p>
+<p>Your third task is to write a function <code>statement3(s)</code> that takes an <code>int</code> argument <code>s</code> and returns <code>True</code> if and only if Samantha, when given the number <code>s</code>, could have made statement 3 after hearing Patricia make statement 2.</p>
+<p>Finally, it is to you to figure out what two numbers Alice was thinking of. Since there are multiple solutions, you must write a function <code>is_solution(a, b)</code> that returns <code>True</code> if and only if <code>a</code> and <code>b</code> could have been two numbers that Alice was thinking of.</p>
+<p>Hint: To get you started, think of what Samantha&apos;s first statement implies. Samantha knows that Patricia was not given the product of two primes. That means that the sum that Samantha was given cannot be written as the sum of two primes. Goldbach&apos;s conjecture stipulates that every even number greater than 3 can be written as the sum of two primes. Although Goldbach&apos;s conjecture has not yet been proven, you may assume that it has been verified for all numbers involved in the test cases here. So we know that the sum that Samantha was given must be odd. The only way to write an odd number as the sum of two primes is when one of the primes is 2, the only even prime. This means that the number given to Samantha is not the sum of 2 and a prime.</p>
+
+### Solution

@@ -14,7 +14,7 @@ inquirer
       type: "input",
       name: "url",
       message: "Codewars collection url?",
-      validate: function (value) {
+      validate: function(value) {
         if (value !== "") {
           return true;
         }
@@ -25,7 +25,7 @@ inquirer
       type: "input",
       name: "folder_name",
       message: "Folder name for problems?",
-      validate: function (value) {
+      validate: function(value) {
         if (value !== "") {
           return true;
         }
@@ -47,7 +47,7 @@ function app(url, folder_name) {
     let content = await page.content();
     let katas = [];
 
-    $(".collection-items .item-title a", content).each(function () {
+    $(".collection-items .item-title a", content).each(function() {
       katas.push({
         url: "https://www.codewars.com" + $(this).attr("href"),
         title: $(this).text()
@@ -69,7 +69,7 @@ function app(url, folder_name) {
       console.log(i + 1, kata);
     }
 
-    let readme = '\n\n## ' + folder_name + '\n';
+    let readme = "\n\n## " + folder_name + "\n";
 
     fs.appendFileSync("readme.md", readme);
 
@@ -80,17 +80,24 @@ function app(url, folder_name) {
     console.log("Writting data to files...");
 
     katas.map((value, index) => {
-      let slug = slugify(value.title, { lower: true });
+      let slug = slugify(value.title, { remove: /[\/:*?"<>|]/g, lower: true });
       let template = `\n${index + 1}. [${value.title}](${
         value.url
-        }) - [Solution](${folder_name}/${index + 1}-${slug}.md)`;
+      }) - [Solution](${folder_name}/${index + 1}-${slug}.md)`;
       fs.appendFileSync("readme.md", template);
 
       let problemTemplate = "### Problem:\n";
       problemTemplate += value.description;
       problemTemplate += "\n### Solution";
 
-      fs.writeFileSync(`${folder_name}/${index + 1}-${slug}.md`, problemTemplate);
+      try {
+        fs.writeFileSync(
+          `${folder_name}/${index + 1}-${slug}.md`,
+          problemTemplate
+        );
+      } catch (error) {
+        console.log(`ERROR --- ${folder_name}/${index + 1}-${slug}.md`);
+      }
     });
 
     await browser.close();
