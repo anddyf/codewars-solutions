@@ -1,8 +1,0 @@
-### Problem:
-<h1 id="binary-search-trees">Binary Search Trees</h1>
-<p>A <code>Tree</code> consists of a root, which is of type <code>Node</code>, and possibly a left subtree of type <code>Tree</code> and possibly a right subtree of type <code>Tree</code>. If the left subtree is present, then all its nodes are less than the parent tree&apos;s root and if the right tree is present, then all its nodes are greater than the parent tree&apos;s root. In this kata, classes <code>Tree</code> and <code>Node</code> have been provided. However, the methods <code>__eq__</code>, <code>__ne__</code>, and <code>__str__</code> are missing from the <code>Tree</code> class. Your job is to provide the implementation of these methods. The example test cases should provide enough information to implement these methods correctly.</p>
-<p>As an illustrative example, here is the string representation of a tree that has two nodes, &apos;B&apos; at the root and &apos;C&apos; at the root of the right subtree. The left subtree is missing and the right subtree is a leaf, i.e., has no subtrees: </p>
-<pre><code>&apos;[_ B [C]]&apos;</code></pre><p>This tree is obtained by evaluating the following expression:</p>
-<pre><code>Tree(Node(&apos;B&apos;), None, Tree(Node(&apos;C&apos;))))</code></pre><p>Notice in particular that when one subtree, but not both, is missing, an underscore is in its place, a single space separates the root node from the subtrees, and when both subtrees are missing, the root node is enclosed in brackets. </p>
-
-### Solution
