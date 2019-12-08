@@ -5,3 +5,20 @@
 <p>Return the total figure the individual will receive as a string prefixed with &quot;&#xA3;&quot; (= <code>&quot;\u00A3&quot;</code>, JS, Go, and Java), &quot;$&quot; (C#, C++, Ruby, Clojure, Elixir, PHP and Python, Haskell, Lua) or &quot;&#xA5;&quot; (Rust).</p>
 
 ### Solution
+
+```javascript
+function bonusTime(salary, bonus) {
+  return bonus ? `£${10 * salary}` : `£${salary}`;
+}
+```
+
+```javascript
+function bonusTime(salary, bonus) {
+  return '£' + salary * (bonus ? 10 : 1);
+}
+```
+```javascript
+function bonusTime(salary, bonus) {
+ return '£' + (bonus ? salary * 10 : salary)
+}
+```
