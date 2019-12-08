@@ -52,17 +52,24 @@ function numberToString(num) {
 }
 ```
 
-```javascript
-function numberToString(num) {
-  return '' + num;
-}
-```
+**Note: String(value) vs value.toString()**
+- `value.ToString()` will cause error if value is `null` or `undefined`
+- `String(value)` mostly works like `value + ''`
 
 ```javascript
 function numberToString(num) {
   return num + '';
 }
 ```
+
+```javascript
+function numberToString(num) {
+  return '' + num;
+}
+```
+
+**Note: concatenation**
+- Aything concatenated with string will coerced to string
 
 ```javascript
 const numberToString = num => `${num}`;
