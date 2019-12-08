@@ -83,6 +83,9 @@ String.prototype.toAlternatingCase = function() {
   return [...this].map(swapCase).join('');
 };
 ```
+**Note: ... syntax**
+- Here `...` is spread operator which mostly works like split('') for string.
+- It could be used for array item destructuring / spreading to a list
 
 ```javascript
 String.prototype.toAlternatingCase = function () {
