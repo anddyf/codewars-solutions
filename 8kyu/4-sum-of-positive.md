@@ -23,6 +23,9 @@ function positiveSum(arr) {
 }
 ```
 
+* Note: reduce
+- parameters guide `array.reduce((accumulator, element)) => ..., initialValueForAccumulator)`
+
 ```javascript
 function positiveSum (arr) {
   return arr.filter(x => x>=0).reduce((a, c) => a + c, 0);
@@ -38,3 +41,21 @@ function positiveSum(arr) {
   return sum;
 }
 ```
+
+```javascript
+function positiveSum(arr) {
+  let sum = 0;
+  arr.map(v => {
+    if (v > -1) {
+      sum += v
+    }
+  })
+  
+  return sum
+}
+```
+
+* Note: forEach vs map
+- `forEach` mutates / affects the real array / object value
+- `map` is a first class function means it doesn't touch on existing array / object value and returns a new array / object
+- `map` is 70% much faster than `forEach`
