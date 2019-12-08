@@ -23,7 +23,7 @@ function positiveSum(arr) {
 }
 ```
 
-* Note: reduce
+**Note: reduce**
 - parameters guide `array.reduce((accumulator, element)) => ..., initialValueForAccumulator)`
 
 ```javascript
@@ -55,7 +55,7 @@ function positiveSum(arr) {
 }
 ```
 
-* Note: forEach vs map
+**Note: forEach vs map**
 - `forEach` mutates / affects the real array / object value
 - `map` is a first class function means it doesn't touch on existing array / object value and returns a new array / object
 - `map` is 70% much faster than `forEach`
